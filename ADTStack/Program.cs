@@ -16,6 +16,7 @@ namespace ADTStack
                 Console.WriteLine("Se asume que los datos ingresados son validos");
                 Console.WriteLine("Coloque una opcion: ");
                 Console.WriteLine("1) Testeo basico");
+                Console.WriteLine("2) Voltear cadena");
 
                 int op = int.Parse(Console.ReadLine());
 
@@ -24,7 +25,11 @@ namespace ADTStack
                     case 1:
                         BasicTest();
                         break;
+                    case 2:
+                        VoltearCadena();
+                        break;
                 }
+                Console.ReadLine();
 
             }
             catch (EmptyStackException ex)
@@ -32,6 +37,24 @@ namespace ADTStack
                 Console.WriteLine(ex.Message);
             }
             Console.ReadLine();
+        }
+        static void VoltearCadena()
+        {
+            IStack<char> pila = new LinkedStack<char>();
+            char c = '0';
+            Console.WriteLine("Coloque una cadena caracteres, al terminar presione ENTER");
+
+            while(c != 13)
+            {
+                c = (char)Console.Read();
+                pila.Push(c);
+            }
+
+            Console.WriteLine("Cadena volteada: ");
+            while (!pila.IsEmpty())
+            {
+                Console.Write(pila.Pop());
+            }
         }
         static void BasicTest()
         {
@@ -67,7 +90,7 @@ namespace ADTStack
                 Console.WriteLine(ex.Message);
             }
             Console.WriteLine("--------------------------------------------------------------------------------");
-           
+
             Console.WriteLine("--------------------------------------------------------------------------------");
             Console.WriteLine("Mientras la pila no este vacia sacamos elementos uno a uno");
             Console.WriteLine("pila.IsEmpty(): " + pila.IsEmpty());
