@@ -15,7 +15,7 @@ namespace ADTStack
         /*
          * Si la pila esta vacia retorna verdadero sino retorna falso.
          */
-        Boolean IsEmpty();
+        bool IsEmpty();
         /*
          * Retorna el tope de la pila, pero no lo elimina, si la pila esta vacia se lanza una EmptyStackException.
          */
